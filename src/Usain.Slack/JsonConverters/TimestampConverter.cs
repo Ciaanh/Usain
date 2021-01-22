@@ -7,7 +7,7 @@ namespace Usain.Slack.JsonConverters
 
     public class TimestampConverter : JsonConverter<Timestamp>
     {
-        public override Timestamp Read(
+        public override Timestamp? Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -17,7 +17,10 @@ namespace Usain.Slack.JsonConverters
                 throw new JsonException();
             }
 
-            Timestamp.TryParse(reader.GetString(), out var eventTimestamp);
+            string? readerValue = reader.GetString();
+            if (String.IsNullOrWhiteSpace(readerValue)) { return null; }
+
+            Timestamp.TryParse(readerValue, out var eventTimestamp);
             return eventTimestamp;
         }
 

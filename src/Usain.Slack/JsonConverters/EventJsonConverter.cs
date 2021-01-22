@@ -11,7 +11,7 @@ namespace Usain.Slack.JsonConverters
             Type typeToConvert)
             => typeof(Event).IsAssignableFrom(typeToConvert);
 
-        public override Event Read(
+        public override Event? Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -28,7 +28,7 @@ namespace Usain.Slack.JsonConverters
                 return new Event();
             }
 
-            return (Event) JsonSerializer.Deserialize(
+            return (Event?) JsonSerializer.Deserialize(
                 root.GetRawText(),
                 type,
                 options);

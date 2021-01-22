@@ -13,7 +13,12 @@ namespace Usain.Slack.JsonConverters
             Type typeToConvert,
             JsonSerializerOptions options)
         {
-            string enumValue = reader.GetString();
+            string? enumValue = reader.GetString();
+            if (enumValue == null)
+            {
+                throw new JsonException($"Can not read 'null' value.");
+            }
+
             return Enum.TryParse<ElementStyle>(
                 enumValue,
                 true,

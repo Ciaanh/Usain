@@ -11,6 +11,9 @@ namespace Microsoft.Extensions.DependencyInjection
 
     public static class ApplicationBuilderExtensions
     {
+        private static string ILoggerFactoryName = nameof(ILoggerFactory);
+        private static string IServiceScopeFactoryName = nameof(IServiceScopeFactory);
+
         public static IApplicationBuilder UseUsainEventListener(
             this IApplicationBuilder app)
         {
@@ -26,7 +29,7 @@ namespace Microsoft.Extensions.DependencyInjection
             var loggerFactory =
                 app.ApplicationServices.GetService(typeof(ILoggerFactory)) as
                     ILoggerFactory
-                ?? throw new ArgumentNullException(nameof(ILoggerFactory));
+                ?? throw new ArgumentNullException(ILoggerFactoryName);
 
             var logger = loggerFactory.CreateLogger("UsainServer.Startup");
             logger.LogInformation(
@@ -37,8 +40,8 @@ namespace Microsoft.Extensions.DependencyInjection
                             .Assembly.Location)
                     .ProductVersion);
 
-            var scopeFactory =
-                app.ApplicationServices.GetService<IServiceScopeFactory>();
+            var scopeFactory = app.ApplicationServices.GetService<IServiceScopeFactory>()
+                ?? throw new ArgumentNullException(IServiceScopeFactoryName);
 
             using var scope = scopeFactory.CreateScope();
             var serviceProvider = scope.ServiceProvider;

@@ -11,7 +11,7 @@ namespace Usain.Slack.JsonConverters
             Type typeToConvert)
             => typeof(CallbackEvent).IsAssignableFrom(typeToConvert);
 
-        public override CallbackEvent Read(
+        public override CallbackEvent? Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -29,7 +29,7 @@ namespace Usain.Slack.JsonConverters
                 return new CallbackEvent { CallbackEventType = "unknown" };
             }
 
-            return (CallbackEvent) JsonSerializer.Deserialize(
+            return (CallbackEvent?) JsonSerializer.Deserialize(
                 root.GetRawText(),
                 type,
                 options);

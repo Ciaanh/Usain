@@ -11,7 +11,7 @@ namespace Usain.Slack.JsonConverters
             Type typeToConvert)
             => typeof(Block).IsAssignableFrom(typeToConvert);
 
-        public override Block Read(
+        public override Block? Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -25,7 +25,7 @@ namespace Usain.Slack.JsonConverters
             // when returning Block type (default case of the type resolver).
             if (type == typeof(Block)) { return new Block(); }
 
-            return (Block) JsonSerializer.Deserialize(
+            return (Block?) JsonSerializer.Deserialize(
                 root.GetRawText(),
                 type,
                 options);

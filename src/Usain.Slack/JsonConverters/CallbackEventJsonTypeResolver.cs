@@ -65,19 +65,26 @@ namespace Usain.Slack.JsonConverters
         {
             if (!jsonElement.TryGetProperty(
                 MessageEvent.MessageIdJsonName,
-                out var messageIdValue)) { return false; }
+                out var messageIdProperty)) { return false; }
 
-            if (!Timestamp.TryParse(
-                messageIdValue.GetString(),
-                out var messageId)) { return false; }
+            string? messageIdValue = messageIdProperty.GetString();
+            if (String.IsNullOrWhiteSpace(messageIdValue)
+                || !Timestamp.TryParse(
+                messageIdValue,
+                out var messageId))
+            { return false; }
 
             if (!jsonElement.TryGetProperty(
                 MessageEvent.ParentMessageIdJsonName,
-                out var parentMessageIdValue)) { return false; }
+                out var parentMessageIdProperty))
+            { return false; }
 
-            if (!Timestamp.TryParse(
-                parentMessageIdValue.GetString(),
-                out var parentMessageId)) { return false; }
+            string? parentMessageIdValue = parentMessageIdProperty.GetString();
+            if (String.IsNullOrWhiteSpace(parentMessageIdValue)
+                || !Timestamp.TryParse(
+                parentMessageIdValue,
+                out var parentMessageId))
+            { return false; }
 
             return messageId != parentMessageId;
         }

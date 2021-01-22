@@ -11,7 +11,7 @@ namespace Usain.Slack.JsonConverters
             Type typeToConvert)
             => typeof(Element).IsAssignableFrom(typeToConvert);
 
-        public override Element Read(
+        public override Element? Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -22,7 +22,7 @@ namespace Usain.Slack.JsonConverters
             var typeProvider = new ElementJsonTypeResolver(root);
             Type type = typeProvider.ResolveType();
 
-            return (Element) JsonSerializer.Deserialize(
+            return (Element?) JsonSerializer.Deserialize(
                 root.GetRawText(),
                 type,
                 options);

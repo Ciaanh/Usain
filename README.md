@@ -15,7 +15,7 @@ However, while trying to integrate Slack using a .NET Core stack, i didn't find 
 
 Usain is simple, fast and scalable.
 
-It provides the event ingesting and processing infrastructure you need to create an reactive (interactive) Slack App.
+It provides the event ingesting and processing infrastructure you need to create a reactive (interactive) Slack App.
 
 <p align="center">
   <img alt="Usain logo" src="assets/doc/arch_overview.png" width="768" />

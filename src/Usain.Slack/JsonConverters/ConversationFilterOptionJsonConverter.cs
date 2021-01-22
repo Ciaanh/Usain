@@ -32,7 +32,12 @@ namespace Usain.Slack.JsonConverters
             Type typeToConvert,
             JsonSerializerOptions options)
         {
-            string enumValue = reader.GetString();
+            string? enumValue = reader.GetString();
+            if (String.IsNullOrWhiteSpace(enumValue))
+            {
+                throw new JsonException($"Conversation filter option value is null.");
+            }
+
             if (_stringToTypeMap.ContainsKey(enumValue))
             {
                 return _stringToTypeMap[enumValue];
@@ -51,15 +56,19 @@ namespace Usain.Slack.JsonConverters
                 case ConversationFilterOption.DirectMessage:
                     writer.WriteStringValue(DirectMessageStringValue);
                     return;
+
                 case ConversationFilterOption.MultiPartyDirectMessage:
                     writer.WriteStringValue(MultiPartyDirectMessageStringValue);
                     return;
+
                 case ConversationFilterOption.Private:
                     writer.WriteStringValue(PrivateStringValue);
                     return;
+
                 case ConversationFilterOption.Public:
                     writer.WriteStringValue(PublicStringValue);
                     return;
+
                 default:
                     writer.WriteNullValue();
                     return;
