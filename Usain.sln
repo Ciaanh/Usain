@@ -1,46 +1,50 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E239EA52-2AF7-4693-A823-D4342003FF80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.EventListener", "src\Usain.EventListener\Usain.EventListener.csproj", "{3742C6E9-5AC8-4D9E-8CD4-1FD168E42AC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.CommandListener", "src\Usain.CommandListener\Usain.CommandListener.csproj", "{3742C6E9-5AC8-4D9E-8CD4-1FD168E42AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.Slack", "src\Usain.Slack\Usain.Slack.csproj", "{9B326732-70C1-4AA8-883C-8209FAAC755C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Slack", "src\Usain.Slack\Usain.Slack.csproj", "{9B326732-70C1-4AA8-883C-8209FAAC755C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{D3BBBBB3-ACBE-438E-B117-FCD293144EA1}"
-ProjectSection(SolutionItems) = preProject
-	README.md = README.md
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{14285CE1-3C32-4448-9997-ED0ACE76B422}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{3204F6E0-5296-47C7-B4F8-55E3646A365F}"
-ProjectSection(SolutionItems) = preProject
-	props\common.props = props\common.props
-	props\dependencies.props = props\dependencies.props
-	props\package.props = props\package.props
-	props\version.props = props\version.props
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		props\common.props = props\common.props
+		props\dependencies.props = props\dependencies.props
+		props\package.props = props\package.props
+		props\version.props = props\version.props
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.Core", "src\Usain.Core\Usain.Core.csproj", "{D8CB236A-E00E-40A1-A0EE-F0E9838DBF5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Core", "src\Usain.Core\Usain.Core.csproj", "{D8CB236A-E00E-40A1-A0EE-F0E9838DBF5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.EventProcessor", "src\Usain.EventProcessor\Usain.EventProcessor.csproj", "{F416F470-E045-4487-A57F-B34CD5661086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.EventProcessor", "src\Usain.EventProcessor\Usain.EventProcessor.csproj", "{F416F470-E045-4487-A57F-B34CD5661086}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{E8B5E0EE-03CE-4EC0-9508-F532092CCE32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.Core.Tests", "tests\unit\Usain.Core.Tests\Usain.Core.Tests.csproj", "{7CFF2011-34DC-493D-BEB9-917183C01841}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Core.Tests", "tests\unit\Usain.Core.Tests\Usain.Core.Tests.csproj", "{7CFF2011-34DC-493D-BEB9-917183C01841}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.Slack.Tests", "tests\unit\Usain.Slack.Tests\Usain.Slack.Tests.csproj", "{BF24BA96-D5B0-4B73-B03B-6B66B6612D61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Slack.Tests", "tests\unit\Usain.Slack.Tests\Usain.Slack.Tests.csproj", "{BF24BA96-D5B0-4B73-B03B-6B66B6612D61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.EventListener.Tests", "tests\unit\Usain.EventListener.Tests\Usain.EventListener.Tests.csproj", "{7A63BCA9-589B-4EDB-9721-AAEAFADF8668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.CommandListener.Tests", "tests\unit\Usain.CommandListener.Tests\Usain.CommandListener.Tests.csproj", "{7A63BCA9-589B-4EDB-9721-AAEAFADF8668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.EventProcessor.Tests", "tests\unit\Usain.EventProcessor.Tests\Usain.EventProcessor.Tests.csproj", "{F1DC0A70-C6FF-4068-8EBE-3F4D45CDB21C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.EventProcessor.Tests", "tests\unit\Usain.EventProcessor.Tests\Usain.EventProcessor.Tests.csproj", "{F1DC0A70-C6FF-4068-8EBE-3F4D45CDB21C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{73AC2543-44AA-4F3B-943C-42A625279791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usain.EventListener.Integration.Tests", "tests\integration\Usain.EventListener.Integration.Tests\Usain.EventListener.Integration.Tests.csproj", "{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.CommandListener.Integration.Tests", "tests\integration\Usain.CommandListener.Integration.Tests\Usain.CommandListener.Integration.Tests.csproj", "{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.InteractionProcessor", "src\Usain.InteractionProcessor\Usain.InteractionProcessor.csproj", "{F0808DFA-909B-47FB-84C4-4CD63D5BED66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.InteractionProcessor.Tests", "tests\unit\Usain.InteractionProcessor.Tests\Usain.InteractionProcessor.Tests.csproj", "{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,9 +54,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3742C6E9-5AC8-4D9E-8CD4-1FD168E42AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -163,6 +164,33 @@ Global
 		{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}.Release|x64.Build.0 = Release|Any CPU
 		{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}.Release|x86.ActiveCfg = Release|Any CPU
 		{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}.Release|x86.Build.0 = Release|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Debug|x64.Build.0 = Debug|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Debug|x86.Build.0 = Debug|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Release|x64.ActiveCfg = Release|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Release|x64.Build.0 = Release|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Release|x86.ActiveCfg = Release|Any CPU
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66}.Release|x86.Build.0 = Release|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Debug|x64.Build.0 = Debug|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Debug|x86.Build.0 = Debug|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Release|x64.ActiveCfg = Release|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Release|x64.Build.0 = Release|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3742C6E9-5AC8-4D9E-8CD4-1FD168E42AC4} = {E239EA52-2AF7-4693-A823-D4342003FF80}
@@ -176,5 +204,10 @@ Global
 		{F1DC0A70-C6FF-4068-8EBE-3F4D45CDB21C} = {E8B5E0EE-03CE-4EC0-9508-F532092CCE32}
 		{73AC2543-44AA-4F3B-943C-42A625279791} = {14285CE1-3C32-4448-9997-ED0ACE76B422}
 		{8133E5BF-0B18-4B25-BF1C-280F98BA59FB} = {73AC2543-44AA-4F3B-943C-42A625279791}
+		{F0808DFA-909B-47FB-84C4-4CD63D5BED66} = {E239EA52-2AF7-4693-A823-D4342003FF80}
+		{0D76F464-9B08-4B17-9C9F-ED9D7BFDF452} = {E8B5E0EE-03CE-4EC0-9508-F532092CCE32}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2B48275-3AA9-47B4-87D8-474F8D10AFFE}
 	EndGlobalSection
 EndGlobal

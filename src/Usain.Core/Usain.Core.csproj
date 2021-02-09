@@ -11,8 +11,4 @@
     <PackageReleaseNotes>v0.1.0-alpha: Initial version</PackageReleaseNotes>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
-
 </Project>
