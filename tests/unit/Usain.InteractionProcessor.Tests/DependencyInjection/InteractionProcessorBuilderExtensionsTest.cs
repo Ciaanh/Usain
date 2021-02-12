@@ -34,17 +34,17 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
         {
             _serviceCollection.Add(
                 new ServiceDescriptor(
-                    typeof(IEventQueue<GlobalShortcut>),
+                    typeof(IRequestQueue<GlobalShortcut>),
                     typeof(InteractionQueueFirst),
                     ServiceLifetime.Singleton));
             var builder = _builderMock.Object;
-            builder.AddEventQueue<InteractionQueueSecond>();
+            builder.AddInteractionQueue<InteractionQueueSecond>();
 
             Assert.Equal(
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
                         && x.ImplementationType == typeof(InteractionQueueFirst)));
         }
 
@@ -52,13 +52,13 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
         public void AddEventQueue_Registers_Singleton()
         {
             var builder = _builderMock.Object;
-            builder.AddEventQueue<InteractionQueueFirst>();
+            builder.AddInteractionQueue<InteractionQueueFirst>();
 
             Assert.Equal(
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
                         && x.ImplementationType == typeof(InteractionQueueFirst)));
         }
 
@@ -69,13 +69,13 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
             var builder = _builderMock.Object;
             Func<IServiceProvider, InteractionQueueFirst> factory =
                 sp => new InteractionQueueFirst();
-            builder.AddEventQueue(factory);
+            builder.AddInteractionQueue(factory);
 
             Assert.Equal(
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
                         && x.ImplementationFactory == factory));
         }
 
@@ -88,19 +88,19 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 sp => new InteractionQueueFirst();
             _serviceCollection.Add(
                 new ServiceDescriptor(
-                    typeof(IEventQueue<GlobalShortcut>),
+                    typeof(IRequestQueue<GlobalShortcut>),
                     factoryFirst,
                     ServiceLifetime.Singleton));
 
             Func<IServiceProvider, InteractionQueueSecond> factorySecond =
                 sp => new InteractionQueueSecond();
-            builder.AddEventQueue(factorySecond);
+            builder.AddInteractionQueue(factorySecond);
 
             Assert.Equal(
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
                         && x.ImplementationFactory == factoryFirst));
         }
 
@@ -122,7 +122,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
         }
 
 
-        private class InteractionQueueFirst : IEventQueue<GlobalShortcut>
+        private class InteractionQueueFirst : IRequestQueue<GlobalShortcut>
         {
             public Task EnqueueAsync(
                 GlobalShortcut item,
@@ -134,7 +134,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 => throw new NotImplementedException();
         }
 
-        private class InteractionQueueSecond : IEventQueue<GlobalShortcut>
+        private class InteractionQueueSecond : IRequestQueue<GlobalShortcut>
         {
             public Task EnqueueAsync(
                 GlobalShortcut item,

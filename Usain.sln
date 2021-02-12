@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E239EA52-2AF7-4693-A823-D4342003FF80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.CommandListener", "src\Usain.CommandListener\Usain.CommandListener.csproj", "{3742C6E9-5AC8-4D9E-8CD4-1FD168E42AC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.RequestListener", "src\Usain.RequestListener\Usain.RequestListener.csproj", "{3742C6E9-5AC8-4D9E-8CD4-1FD168E42AC4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Slack", "src\Usain.Slack\Usain.Slack.csproj", "{9B326732-70C1-4AA8-883C-8209FAAC755C}"
 EndProject
@@ -34,13 +34,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Core.Tests", "tests\u
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.Slack.Tests", "tests\unit\Usain.Slack.Tests\Usain.Slack.Tests.csproj", "{BF24BA96-D5B0-4B73-B03B-6B66B6612D61}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.CommandListener.Tests", "tests\unit\Usain.CommandListener.Tests\Usain.CommandListener.Tests.csproj", "{7A63BCA9-589B-4EDB-9721-AAEAFADF8668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.RequestListener.Tests", "tests\unit\Usain.RequestListener.Tests\Usain.RequestListener.Tests.csproj", "{7A63BCA9-589B-4EDB-9721-AAEAFADF8668}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.EventProcessor.Tests", "tests\unit\Usain.EventProcessor.Tests\Usain.EventProcessor.Tests.csproj", "{F1DC0A70-C6FF-4068-8EBE-3F4D45CDB21C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{73AC2543-44AA-4F3B-943C-42A625279791}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.CommandListener.Integration.Tests", "tests\integration\Usain.CommandListener.Integration.Tests\Usain.CommandListener.Integration.Tests.csproj", "{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.RequestListener.Integration.Tests", "tests\integration\Usain.RequestListener.Integration.Tests\Usain.RequestListener.Integration.Tests.csproj", "{8133E5BF-0B18-4B25-BF1C-280F98BA59FB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usain.InteractionProcessor", "src\Usain.InteractionProcessor\Usain.InteractionProcessor.csproj", "{F0808DFA-909B-47FB-84C4-4CD63D5BED66}"
 EndProject

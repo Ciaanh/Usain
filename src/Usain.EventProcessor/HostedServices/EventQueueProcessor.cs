@@ -11,12 +11,12 @@ namespace Usain.EventProcessor.HostedServices
     internal class EventQueueProcessor : IEventQueueProcessor
     {
         private readonly ILogger _logger;
-        private readonly IEventQueue<EventWrapper> _eventQueue;
+        private readonly IRequestQueue<EventWrapper> _eventQueue;
         private readonly IEventReactionGenerator _eventReactionGenerator;
 
         public EventQueueProcessor(
             ILogger<EventQueueProcessor> logger,
-            IEventQueue<EventWrapper> eventQueue,
+            IRequestQueue<EventWrapper> eventQueue,
             IEventReactionGenerator eventReactionGenerator)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

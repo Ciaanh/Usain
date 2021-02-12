@@ -11,12 +11,12 @@ namespace Usain.InteractionProcessor.HostedServices
     internal class InteractionQueueProcessor : IInteractionQueueProcessor
     {
         private readonly ILogger _logger;
-        private readonly IEventQueue<Interaction> _interactionQueue;
+        private readonly IRequestQueue<Interaction> _interactionQueue;
         private readonly IInteractionReactionGenerator _interactionReactionGenerator;
 
         public InteractionQueueProcessor(
             ILogger<InteractionQueueProcessor> logger,
-            IEventQueue<Interaction> interactionQueue,
+            IRequestQueue<Interaction> interactionQueue,
             IInteractionReactionGenerator interactionReactionGenerator)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

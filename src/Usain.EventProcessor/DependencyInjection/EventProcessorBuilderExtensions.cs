@@ -15,10 +15,10 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IEventProcessorBuilder AddEventQueue<TEventQueue>(
             this IEventProcessorBuilder builder)
-            where TEventQueue : class, IEventQueue<EventWrapper>
+            where TEventQueue : class, IRequestQueue<EventWrapper>
         {
             builder.Services
-                .TryAddSingleton<IEventQueue<EventWrapper>, TEventQueue>();
+                .TryAddSingleton<IRequestQueue<EventWrapper>, TEventQueue>();
 
             return builder;
         }
@@ -26,9 +26,9 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IEventProcessorBuilder AddEventQueue<TEventQueue>(
             this IEventProcessorBuilder builder,
             Func<IServiceProvider, TEventQueue> implementationFactory)
-            where TEventQueue : class, IEventQueue<EventWrapper>
+            where TEventQueue : class, IRequestQueue<EventWrapper>
         {
-            builder.Services.TryAddSingleton<IEventQueue<EventWrapper>>(
+            builder.Services.TryAddSingleton<IRequestQueue<EventWrapper>>(
                 implementationFactory);
 
             return builder;

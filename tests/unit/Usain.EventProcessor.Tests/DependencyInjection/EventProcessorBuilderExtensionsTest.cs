@@ -33,7 +33,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
         {
             _serviceCollection.Add(
                 new ServiceDescriptor(
-                    typeof(IEventQueue<EventWrapper>),
+                    typeof(IRequestQueue<EventWrapper>),
                     typeof(EventQueueFirst),
                     ServiceLifetime.Singleton));
             var builder = _builderMock.Object;
@@ -43,7 +43,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<EventWrapper>)
+                        && x.ServiceType == typeof(IRequestQueue<EventWrapper>)
                         && x.ImplementationType == typeof(EventQueueFirst)));
         }
 
@@ -57,7 +57,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<EventWrapper>)
+                        && x.ServiceType == typeof(IRequestQueue<EventWrapper>)
                         && x.ImplementationType == typeof(EventQueueFirst)));
         }
 
@@ -74,7 +74,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<EventWrapper>)
+                        && x.ServiceType == typeof(IRequestQueue<EventWrapper>)
                         && x.ImplementationFactory == factory));
         }
 
@@ -87,7 +87,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
                 sp => new EventQueueFirst();
             _serviceCollection.Add(
                 new ServiceDescriptor(
-                    typeof(IEventQueue<EventWrapper>),
+                    typeof(IRequestQueue<EventWrapper>),
                     factoryFirst,
                     ServiceLifetime.Singleton));
 
@@ -99,7 +99,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IEventQueue<EventWrapper>)
+                        && x.ServiceType == typeof(IRequestQueue<EventWrapper>)
                         && x.ImplementationFactory == factoryFirst));
         }
 
@@ -121,7 +121,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
         }
 
 
-        private class EventQueueFirst : IEventQueue<EventWrapper>
+        private class EventQueueFirst : IRequestQueue<EventWrapper>
         {
             public Task EnqueueAsync(
                 EventWrapper item,
@@ -133,7 +133,7 @@ namespace Usain.EventProcessor.Tests.DependencyInjection
                 => throw new NotImplementedException();
         }
 
-        private class EventQueueSecond : IEventQueue<EventWrapper>
+        private class EventQueueSecond : IRequestQueue<EventWrapper>
         {
             public Task EnqueueAsync(
                 EventWrapper item,

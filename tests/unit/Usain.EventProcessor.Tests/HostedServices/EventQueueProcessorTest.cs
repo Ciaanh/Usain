@@ -15,8 +15,8 @@ namespace Usain.EventProcessor.Tests.HostedServices
     {
         private readonly Mock<ILogger<EventQueueProcessor>> _loggerMock =
             new Mock<ILogger<EventQueueProcessor>>();
-        private readonly Mock<IEventQueue<EventWrapper>> _eventQueueMock =
-            new Mock<IEventQueue<EventWrapper>>();
+        private readonly Mock<IRequestQueue<EventWrapper>> _eventQueueMock =
+            new Mock<IRequestQueue<EventWrapper>>();
         private readonly Mock<IEventReactionGenerator> _reactionGeneratorMock =
             new Mock<IEventReactionGenerator>();
         private readonly Mock<IEventReaction> _reactionMock =

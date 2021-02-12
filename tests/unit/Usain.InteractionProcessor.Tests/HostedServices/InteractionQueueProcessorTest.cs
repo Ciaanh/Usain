@@ -15,8 +15,8 @@ namespace Usain.InteractionProcessor.Tests.HostedServices
         private readonly Mock<ILogger<InteractionQueueProcessor>> _loggerMock =
             new Mock<ILogger<InteractionQueueProcessor>>();
 
-        private readonly Mock<IEventQueue<Interaction>> _interactionQueueMock =
-            new Mock<IEventQueue<Interaction>>();
+        private readonly Mock<IRequestQueue<Interaction>> _interactionQueueMock =
+            new Mock<IRequestQueue<Interaction>>();
 
         private readonly Mock<IInteractionReactionGenerator> _reactionGeneratorMock =
             new Mock<IInteractionReactionGenerator>();
