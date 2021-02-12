@@ -28,10 +28,14 @@ namespace Usain.InteractionProcessor.InteractionReactions
         public IInteractionReaction Generate(
             Interaction interaction)
         {
+            if (interaction == null)
+            {
+                throw new InvalidOperationException("Interaction is not defined");
+            }
+
             return interaction switch
             {
-                GlobalShortcut _ => _shortcutInteractionReactionFactory.Create(
-                    interaction),
+                GlobalShortcut _ => _shortcutInteractionReactionFactory.Create(interaction),
                 _ => _noopInteractionReactionFactory.Create(interaction),
             };
         }

@@ -52,12 +52,12 @@ namespace Usain.InteractionProcessor.Tests.HostedServices
         }
 
         [Fact]
-        public async Task ProcessQueueAsync_Dequeue_Interaction_And_DoesNot_React_When_CallbackEvent_Is_Null()
+        public async Task ProcessQueueAsync_Dequeue_Interaction_And_DoesNot_React_When_Interaction_Is_Null()
         {
             _interaction = new Interaction();
             _interactionQueueMock.Setup(
                     x => x.DequeueAsync(It.IsAny<CancellationToken>()))
-                .Returns(Task.FromResult(_interaction));
+                .Returns(Task.FromResult((Interaction)null));
 
             var queueProcessor = CreateInteractionQueueProcessor();
             await queueProcessor.ProcessQueueAsync(CancellationToken.None);
