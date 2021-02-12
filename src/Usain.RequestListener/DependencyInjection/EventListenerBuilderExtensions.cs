@@ -46,10 +46,10 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IEventListenerBuilder AddInteractionQueue<TEventQueue>(
                     this IEventListenerBuilder builder)
-                    where TEventQueue : class, IRequestQueue<GlobalShortcut>
+                    where TEventQueue : class, IRequestQueue<Interaction>
         {
             builder.Services
-                .TryAddSingleton<IRequestQueue<GlobalShortcut>, TEventQueue>();
+                .TryAddSingleton<IRequestQueue<Interaction>, TEventQueue>();
 
             return builder;
         }
@@ -57,9 +57,9 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IEventListenerBuilder AddInteractionQueue<TEventQueue>(
             this IEventListenerBuilder builder,
             Func<IServiceProvider, TEventQueue> implementationFactory)
-            where TEventQueue : class, IRequestQueue<GlobalShortcut>
+            where TEventQueue : class, IRequestQueue<Interaction>
         {
-            builder.Services.TryAddSingleton<IRequestQueue<GlobalShortcut>>(
+            builder.Services.TryAddSingleton<IRequestQueue<Interaction>>(
                 implementationFactory);
 
             return builder;

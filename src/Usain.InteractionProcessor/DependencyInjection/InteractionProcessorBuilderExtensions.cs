@@ -15,10 +15,10 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IInteractionProcessorBuilder AddInteractionQueue<TInteractionQueue>(
             this IInteractionProcessorBuilder builder)
-            where TInteractionQueue : class, IRequestQueue<GlobalShortcut>
+            where TInteractionQueue : class, IRequestQueue<Interaction>
         {
             builder.Services
-                .TryAddSingleton<IRequestQueue<GlobalShortcut>, TInteractionQueue>();
+                .TryAddSingleton<IRequestQueue<Interaction>, TInteractionQueue>();
 
             return builder;
         }
@@ -26,9 +26,9 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IInteractionProcessorBuilder AddInteractionQueue<TInteractionQueue>(
             this IInteractionProcessorBuilder builder,
             Func<IServiceProvider, TInteractionQueue> implementationFactory)
-            where TInteractionQueue : class, IRequestQueue<GlobalShortcut>
+            where TInteractionQueue : class, IRequestQueue<Interaction>
         {
-            builder.Services.TryAddSingleton<IRequestQueue<GlobalShortcut>>(
+            builder.Services.TryAddSingleton<IRequestQueue<Interaction>>(
                 implementationFactory);
 
             return builder;

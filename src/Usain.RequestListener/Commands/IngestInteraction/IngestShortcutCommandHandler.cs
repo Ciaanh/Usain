@@ -11,11 +11,11 @@ namespace Usain.RequestListener.Commands.IngestInteraction
         : ICommandHandler<IngestShortcutCommand, CommandResult>
     {
         private readonly ILogger _logger;
-        private readonly IRequestQueue<GlobalShortcut> _shortcutQueue;
+        private readonly IRequestQueue<Interaction> _shortcutQueue;
 
         public IngestShortcutCommandHandler(
             ILogger<IngestShortcutCommandHandler> logger,
-            IRequestQueue<GlobalShortcut> shortcutQueue)
+            IRequestQueue<Interaction> shortcutQueue)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _shortcutQueue = shortcutQueue

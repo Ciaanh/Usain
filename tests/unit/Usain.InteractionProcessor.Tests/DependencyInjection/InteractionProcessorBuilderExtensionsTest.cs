@@ -34,7 +34,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
         {
             _serviceCollection.Add(
                 new ServiceDescriptor(
-                    typeof(IRequestQueue<GlobalShortcut>),
+                    typeof(IRequestQueue<Interaction>),
                     typeof(InteractionQueueFirst),
                     ServiceLifetime.Singleton));
             var builder = _builderMock.Object;
@@ -44,7 +44,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<Interaction>)
                         && x.ImplementationType == typeof(InteractionQueueFirst)));
         }
 
@@ -58,7 +58,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<Interaction>)
                         && x.ImplementationType == typeof(InteractionQueueFirst)));
         }
 
@@ -75,7 +75,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<Interaction>)
                         && x.ImplementationFactory == factory));
         }
 
@@ -88,7 +88,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 sp => new InteractionQueueFirst();
             _serviceCollection.Add(
                 new ServiceDescriptor(
-                    typeof(IRequestQueue<GlobalShortcut>),
+                    typeof(IRequestQueue<Interaction>),
                     factoryFirst,
                     ServiceLifetime.Singleton));
 
@@ -100,7 +100,7 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
                 1,
                 _serviceCollection.Count(
                     x => x.Lifetime == ServiceLifetime.Singleton
-                        && x.ServiceType == typeof(IRequestQueue<GlobalShortcut>)
+                        && x.ServiceType == typeof(IRequestQueue<Interaction>)
                         && x.ImplementationFactory == factoryFirst));
         }
 
@@ -122,26 +122,26 @@ namespace Usain.InteractionProcessor.Tests.DependencyInjection
         }
 
 
-        private class InteractionQueueFirst : IRequestQueue<GlobalShortcut>
+        private class InteractionQueueFirst : IRequestQueue<Interaction>
         {
             public Task EnqueueAsync(
-                GlobalShortcut item,
+                Interaction item,
                 CancellationToken cancellationToken)
                 => throw new NotImplementedException();
 
-            public Task<GlobalShortcut> DequeueAsync(
+            public Task<Interaction> DequeueAsync(
                 CancellationToken cancellationToken)
                 => throw new NotImplementedException();
         }
 
-        private class InteractionQueueSecond : IRequestQueue<GlobalShortcut>
+        private class InteractionQueueSecond : IRequestQueue<Interaction>
         {
             public Task EnqueueAsync(
-                GlobalShortcut item,
+                Interaction item,
                 CancellationToken cancellationToken)
                 => throw new NotImplementedException();
 
-            public Task<GlobalShortcut> DequeueAsync(
+            public Task<Interaction> DequeueAsync(
                 CancellationToken cancellationToken)
                 => throw new NotImplementedException();
         }
