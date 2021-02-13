@@ -13,11 +13,14 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Endpoints
     internal class EventsEndpointHandler : IEndpointHandler
     {
         private readonly ILogger _logger;
-        private readonly IEventsEndpointResultGenerator<UrlVerificationEvent>
+
+        private readonly IEventEndpointResultGenerator<UrlVerificationEvent>
             _urlVerificationEventResultGenerator;
-        private readonly IEventsEndpointResultGenerator<AppRateLimitedEvent>
+
+        private readonly IEventEndpointResultGenerator<AppRateLimitedEvent>
             _appRateLimitedEventResultGenerator;
-        private readonly IEventsEndpointResultGenerator<EventWrapper>
+
+        private readonly IEventEndpointResultGenerator<EventWrapper>
             _callbackEventResultGenerator;
 
         public const string ProtocolRoutePath = "/events";
@@ -25,11 +28,11 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Endpoints
 
         public EventsEndpointHandler(
             ILogger<EventsEndpointHandler> logger,
-            IEventsEndpointResultGenerator<UrlVerificationEvent>
+            IEventEndpointResultGenerator<UrlVerificationEvent>
                 urlVerificationEventResultGenerator,
-            IEventsEndpointResultGenerator<AppRateLimitedEvent>
+            IEventEndpointResultGenerator<AppRateLimitedEvent>
                 appRateLimitedEventResultGenerator,
-            IEventsEndpointResultGenerator<EventWrapper>
+            IEventEndpointResultGenerator<EventWrapper>
                 callbackEventResultGenerator)
         {
             _logger = logger;

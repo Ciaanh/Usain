@@ -24,7 +24,7 @@ namespace Usain.RequestListener.Integration.Tests.Helpers
         private static void ConfigureServices(
             IServiceCollection services)
         {
-            services.AddUsainEventListener(
+            services.AddUsainRequestListener(
                     config => config.IsRequestAuthenticationEnabled = false)
                 .AddEventQueue<InMemoryEventQueue>();
         }
@@ -32,7 +32,7 @@ namespace Usain.RequestListener.Integration.Tests.Helpers
         private static void ConfigureApp(
             IApplicationBuilder app)
         {
-            app.UseUsainEventListener();
+            app.UseUsainRequestListener();
         }
     }
 }

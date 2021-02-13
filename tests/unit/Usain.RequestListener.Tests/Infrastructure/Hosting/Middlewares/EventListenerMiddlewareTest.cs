@@ -13,9 +13,9 @@ namespace Usain.RequestListener.Tests.Infrastructure.Hosting.Middlewares
 
     public class EventListenerMiddlewareTest
     {
-        private readonly Mock<ILogger<EventListenerMiddleware>>
+        private readonly Mock<ILogger<RequestListenerMiddleware>>
             _loggerMock
-                = new Mock<ILogger<EventListenerMiddleware>>();
+                = new Mock<ILogger<RequestListenerMiddleware>>();
         private readonly Mock<IEndpointRouter> _endpointRouterMock =
             new Mock<IEndpointRouter>();
         private readonly Mock<IEndpointHandler> _endpointHandlerMock =
@@ -115,8 +115,8 @@ namespace Usain.RequestListener.Tests.Infrastructure.Hosting.Middlewares
             Mock.VerifyAll();
         }
 
-        private EventListenerMiddleware CreateMiddleware()
-            => new EventListenerMiddleware(
+        private RequestListenerMiddleware CreateMiddleware()
+            => new RequestListenerMiddleware(
                 _loggerMock.Object,
                 _endpointRouterMock.Object);
     }

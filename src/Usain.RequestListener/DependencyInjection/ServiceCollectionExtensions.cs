@@ -9,10 +9,10 @@ namespace Microsoft.Extensions.DependencyInjection
     /// </summary>
     public static class ServiceCollectionExtensions
     {
-        public static IEventListenerBuilder AddUsainEventListener(
+        public static IRequestListenerBuilder AddUsainRequestListener(
             this IServiceCollection services)
         {
-            var builder = services.AddUsainEventListenerBuilder();
+            var builder = services.AddUsainRequestListenerBuilder();
 
             builder
                 .AddPlatformServices()
@@ -22,17 +22,16 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-        public static IEventListenerBuilder AddUsainEventListener(
+        public static IRequestListenerBuilder AddUsainRequestListener(
             this IServiceCollection services,
-            Action<
-                EventListenerOptions> configureOptions)
+            Action<RequestListenerOptions> configureOptions)
         {
             services.Configure(configureOptions);
-            return services.AddUsainEventListener();
+            return services.AddUsainRequestListener();
         }
 
-        public static IEventListenerBuilder AddUsainEventListenerBuilder(
+        public static IRequestListenerBuilder AddUsainRequestListenerBuilder(
             this IServiceCollection services)
-            => new EventListenerBuilder(services);
+            => new RequestListenerBuilder(services);
     }
 }

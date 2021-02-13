@@ -10,14 +10,12 @@ namespace Usain.InteractionProcessor.InteractionReactions
     {
         private readonly ILogger<NoopInteractionReaction<TInteraction>> _logger;
 
-        public DefaultInteractionReactionFactory(
-            ILoggerFactory loggerFactory)
+        public DefaultInteractionReactionFactory(ILoggerFactory loggerFactory)
             => _logger = loggerFactory
                     .CreateLogger<NoopInteractionReaction<TInteraction>>()
                 ?? throw new ArgumentNullException(nameof(loggerFactory));
 
-        public IInteractionReaction<TInteraction> Create(
-            Interaction interaction)
+        public IInteractionReaction<TInteraction> Create(Interaction interaction)
             => new NoopInteractionReaction<TInteraction>(
                 _logger,
                 interaction);

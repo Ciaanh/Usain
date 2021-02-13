@@ -4,7 +4,6 @@ namespace Usain.InteractionProcessor.InteractionReactions
 
     internal interface IInteractionReactionGenerator
     {
-        IInteractionReaction Generate(
-            Interaction interaction);
+        IInteractionReaction Generate(Interaction interaction);
     }
 }

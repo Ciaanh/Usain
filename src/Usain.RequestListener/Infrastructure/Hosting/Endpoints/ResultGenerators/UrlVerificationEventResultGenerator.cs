@@ -11,7 +11,7 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Endpoints.ResultGenerator
     using Slack.Models.Events;
 
     internal class UrlVerificationEventResultGenerator
-        : IEventsEndpointResultGenerator<UrlVerificationEvent>
+        : IEventEndpointResultGenerator<UrlVerificationEvent>
     {
         private readonly ILogger _logger;
         private readonly IMediator _mediator;

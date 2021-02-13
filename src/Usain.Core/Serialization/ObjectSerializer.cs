@@ -5,18 +5,13 @@ namespace Usain.Core.Serialization
 
     public static class ObjectSerializer
     {
-        private static readonly JsonSerializerOptions Options =
-            new JsonSerializerOptions
-            {
-                IgnoreNullValues = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            };
+        private static readonly JsonSerializerOptions Options = new JsonSerializerOptions
+        {
+            IgnoreNullValues = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        };
 
-        public static string ToString(
-            object o)
-            => JsonSerializer.Serialize(
-                o,
-                Options);
+        public static string ToString(object o) => JsonSerializer.Serialize(o, Options);
 
         [return: MaybeNull]
         public static T FromString<T>(

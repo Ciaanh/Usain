@@ -4,7 +4,7 @@ namespace Microsoft.Extensions.DependencyInjection
     /// <summary>
     /// EventListener builder Interface
     /// </summary>
-    public interface IEventListenerBuilder
+    public interface IRequestListenerBuilder
     {
         /// <summary>
         /// Gets the services.

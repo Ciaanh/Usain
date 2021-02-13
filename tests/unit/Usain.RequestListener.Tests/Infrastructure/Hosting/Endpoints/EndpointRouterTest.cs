@@ -21,9 +21,9 @@ namespace Usain.RequestListener.Tests.Infrastructure.Hosting.Endpoints
         private readonly EventsEndpointHandler _handler =
             new EventsEndpointHandler(
                 Mock.Of<ILogger<EventsEndpointHandler>>(),
-                Mock.Of<IEventsEndpointResultGenerator<UrlVerificationEvent>>(),
-                Mock.Of<IEventsEndpointResultGenerator<AppRateLimitedEvent>>(),
-                Mock.Of<IEventsEndpointResultGenerator<EventWrapper>>());
+                Mock.Of<IEventEndpointResultGenerator<UrlVerificationEvent>>(),
+                Mock.Of<IEventEndpointResultGenerator<AppRateLimitedEvent>>(),
+                Mock.Of<IEventEndpointResultGenerator<EventWrapper>>());
 
         public EndpointRouterTest()
         {

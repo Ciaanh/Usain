@@ -14,8 +14,7 @@ namespace Usain.InteractionProcessor.InteractionReactions
 
         public InteractionReactionGenerator(
             IInteractionReactionFactory<Interaction> noopInteractionReactionFactory,
-            IInteractionReactionFactory<GlobalShortcut>
-                shortcutInteractionReactionFactory)
+            IInteractionReactionFactory<GlobalShortcut> shortcutInteractionReactionFactory)
         {
             _noopInteractionReactionFactory = noopInteractionReactionFactory
                 ?? throw new ArgumentNullException(

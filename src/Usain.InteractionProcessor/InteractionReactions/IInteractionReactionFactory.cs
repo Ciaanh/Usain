@@ -5,7 +5,6 @@ namespace Usain.InteractionProcessor.InteractionReactions
     public interface IInteractionReactionFactory<out TInteraction>
         where TInteraction : class, new()
     {
-        IInteractionReaction<TInteraction> Create(
-            Interaction interaction);
+        IInteractionReaction<TInteraction> Create(Interaction interaction);
     }
 }

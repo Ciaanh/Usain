@@ -8,7 +8,7 @@ namespace Usain.RequestListener.Commands.IngestInteraction
     using Slack.Models.Interactions;
 
     internal class IngestShortcutCommandHandler
-        : ICommandHandler<IngestShortcutCommand, CommandResult>
+        : ICommandHandler<IngestInteractionCommand, CommandResult>
     {
         private readonly ILogger _logger;
         private readonly IRequestQueue<Interaction> _shortcutQueue;
@@ -23,7 +23,7 @@ namespace Usain.RequestListener.Commands.IngestInteraction
         }
 
         public async Task<CommandResult> Handle(
-            IngestShortcutCommand request,
+            IngestInteractionCommand request,
             CancellationToken cancellationToken)
         {
             _logger.LogCommandHandling(request.ToString());
@@ -36,12 +36,12 @@ namespace Usain.RequestListener.Commands.IngestInteraction
                     CommandResultType.Aborted);
             }
 
-            var @interaction = request.Shortcut;
-            _logger.LogIngestingInteractionOfType(@interaction.InteractionType);
+            var interaction = request.Interaction;
+            _logger.LogIngestingInteractionOfType(interaction.InteractionType);
             try
             {
                 await _shortcutQueue.EnqueueAsync(
-                    @interaction,
+                    interaction,
                     cancellationToken);
             }
             catch (Exception ex)

@@ -6,13 +6,13 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Middlewares
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
 
-    internal class EventListenerMiddleware : IMiddleware
+    internal class RequestListenerMiddleware : IMiddleware
     {
         private readonly ILogger _logger;
         private readonly IEndpointRouter _endpointRouter;
 
-        public EventListenerMiddleware(
-            ILogger<EventListenerMiddleware> logger,
+        public RequestListenerMiddleware(
+            ILogger<RequestListenerMiddleware> logger,
             IEndpointRouter endpointRouter)
         {
             _logger = logger;

@@ -21,11 +21,11 @@ namespace Usain.RequestListener.Tests.Infrastructure.Security
             new Mock<ISignatureVerifier>();
         private readonly Mock<ILogger<RequestAuthenticator>>
             _loggerMock = new Mock<ILogger<RequestAuthenticator>>();
-        private readonly Mock<IOptionsMonitor<EventListenerOptions>>
+        private readonly Mock<IOptionsMonitor<RequestListenerOptions>>
             _optionsMonitorMock =
-                new Mock<IOptionsMonitor<EventListenerOptions>>();
-        private readonly EventListenerOptions _options =
-            new EventListenerOptions();
+                new Mock<IOptionsMonitor<RequestListenerOptions>>();
+        private readonly RequestListenerOptions _options =
+            new RequestListenerOptions();
         private readonly Mock<Stream> _requestBodyMock = new Mock<Stream>();
         private readonly Mock<HttpRequest> _requestMock =
             new Mock<HttpRequest>();

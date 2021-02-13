@@ -5,7 +5,7 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Endpoints.ResultGenerator
     using Results;
     using Slack.Models.Events;
 
-    internal interface IEventsEndpointResultGenerator<in TEvent>
+    internal interface IEventEndpointResultGenerator<in TEvent>
         where TEvent : Event
     {
         Task<IEndpointResult> GenerateResult(

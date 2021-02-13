@@ -12,14 +12,14 @@ namespace Usain.RequestListener.Infrastructure.Security
     internal class RequestAuthenticator : IRequestAuthenticator
     {
         private readonly ILogger _logger;
-        private readonly IOptionsMonitor<EventListenerOptions>
+        private readonly IOptionsMonitor<RequestListenerOptions>
             _optionsMonitorMonitor;
         private readonly ISignatureVerifier _signatureVerifier;
 
         public RequestAuthenticator(
             ILogger<RequestAuthenticator> logger,
             ISignatureVerifier signatureVerifier,
-            IOptionsMonitor<EventListenerOptions> optionsMonitor)
+            IOptionsMonitor<RequestListenerOptions> optionsMonitor)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _signatureVerifier = signatureVerifier

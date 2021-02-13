@@ -2,21 +2,21 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Endpoints.ResultGenerator
 {
     using System.Threading;
     using System.Threading.Tasks;
-    using Commands.IngestEvent;
     using MediatR;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
     using Results;
-    using Slack.Models.Events;
+    using Usain.RequestListener.Commands.IngestInteraction;
+    using Usain.Slack.Models.Interactions;
 
-    internal class CallbackEventResultGenerator
-        : IEventEndpointResultGenerator<EventWrapper>
+    internal class InteractionResultGenerator
+        : IInteractionEndpointResultGenerator<Interaction>
     {
         private readonly ILogger _logger;
         private readonly IMediator _mediator;
 
-        public CallbackEventResultGenerator(
-            ILogger<CallbackEventResultGenerator> logger,
+        public InteractionResultGenerator(
+            ILogger<InteractionResultGenerator> logger,
             IMediator mediator)
         {
             _logger = logger;
@@ -24,12 +24,12 @@ namespace Usain.RequestListener.Infrastructure.Hosting.Endpoints.ResultGenerator
         }
 
         public async Task<IEndpointResult> GenerateResult(
-            EventWrapper @event,
+            Interaction interaction,
             CancellationToken cancellationToken)
         {
             var commandResult =
                 await _mediator.Send(
-                    new IngestEventCommand(@event),
+                    new IngestInteractionCommand(interaction),
                     cancellationToken);
             if (!commandResult.IsSuccess)
             {

@@ -4,9 +4,9 @@ namespace Usain.RequestListener.Configuration
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Options;
 
-    public class EventListenerOptions : IConfigureOptions<EventListenerOptions>
+    public class RequestListenerOptions : IConfigureOptions<RequestListenerOptions>
     {
-        private const string OptionsSectionKeyName = "UsainEventListener";
+        private const string OptionsSectionKeyName = "UsainRequestListener";
         private readonly IConfiguration? _configuration;
 
         public bool IsRequestAuthenticationEnabled { get; set; } = true;
@@ -20,14 +20,16 @@ namespace Usain.RequestListener.Configuration
             ErrorMessageResourceType = typeof(Resources))]
         public int DeltaTimeToleranceSeconds { get; set; } = 300;
 
-        public EventListenerOptions() { }
+        public RequestListenerOptions()
+        {
+        }
 
-        public EventListenerOptions(
+        public RequestListenerOptions(
             IConfiguration configuration)
             => _configuration = configuration;
 
         public void Configure(
-            EventListenerOptions options)
+            RequestListenerOptions options)
         {
             _configuration?.GetSection(OptionsSectionKeyName)
                 .Bind(options);

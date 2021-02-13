@@ -27,17 +27,17 @@ namespace Usain.RequestListener.Tests.Infrastructure.Hosting.Endpoints
         private readonly Mock<ILogger<EventsEndpointHandler>> _loggerMock =
             new Mock<ILogger<EventsEndpointHandler>>();
         private readonly
-            Mock<IEventsEndpointResultGenerator<UrlVerificationEvent>>
+            Mock<IEventEndpointResultGenerator<UrlVerificationEvent>>
             _urlVerificationResultGeneratorMock =
-                new Mock<IEventsEndpointResultGenerator<UrlVerificationEvent>
+                new Mock<IEventEndpointResultGenerator<UrlVerificationEvent>
                 >();
         private readonly
-            Mock<IEventsEndpointResultGenerator<AppRateLimitedEvent>>
+            Mock<IEventEndpointResultGenerator<AppRateLimitedEvent>>
             _appRateLimitedResultGeneratorMock =
-                new Mock<IEventsEndpointResultGenerator<AppRateLimitedEvent>>();
-        private readonly Mock<IEventsEndpointResultGenerator<EventWrapper>>
+                new Mock<IEventEndpointResultGenerator<AppRateLimitedEvent>>();
+        private readonly Mock<IEventEndpointResultGenerator<EventWrapper>>
             _callbackEventResultGeneratorMock =
-                new Mock<IEventsEndpointResultGenerator<EventWrapper>>();
+                new Mock<IEventEndpointResultGenerator<EventWrapper>>();
         private readonly Mock<HttpContext> _httpContextMock =
             new Mock<HttpContext>();
 

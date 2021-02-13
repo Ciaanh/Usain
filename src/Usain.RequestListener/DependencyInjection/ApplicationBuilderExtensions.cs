@@ -14,12 +14,12 @@ namespace Microsoft.Extensions.DependencyInjection
         private static string ILoggerFactoryName = nameof(ILoggerFactory);
         private static string IServiceScopeFactoryName = nameof(IServiceScopeFactory);
 
-        public static IApplicationBuilder UseUsainEventListener(
+        public static IApplicationBuilder UseUsainRequestListener(
             this IApplicationBuilder app)
         {
             app.Validate();
             app.UseMiddleware<RequestAuthenticationMiddleware>();
-            app.UseMiddleware<EventListenerMiddleware>();
+            app.UseMiddleware<RequestListenerMiddleware>();
             return app;
         }
 
@@ -36,7 +36,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 "Starting UsainServer version {version}",
                 FileVersionInfo
                     .GetVersionInfo(
-                        typeof(EventListenerMiddleware)
+                        typeof(RequestListenerMiddleware)
                             .Assembly.Location)
                     .ProductVersion);
 
@@ -46,12 +46,12 @@ namespace Microsoft.Extensions.DependencyInjection
             using var scope = scopeFactory.CreateScope();
             var serviceProvider = scope.ServiceProvider;
             var optionsMonitor = serviceProvider
-                .GetRequiredService<IOptions<EventListenerOptions>>();
+                .GetRequiredService<IOptions<RequestListenerOptions>>();
             ValidateOptions(optionsMonitor);
         }
 
         internal static void ValidateOptions(
-            IOptions<EventListenerOptions> serverOptions)
+            IOptions<RequestListenerOptions> serverOptions)
         {
             var options = serverOptions.Value;
             if (options == null)

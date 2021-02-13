@@ -1,7 +1,7 @@
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public class EventListenerBuilder : IEventListenerBuilder
+    public class RequestListenerBuilder : IRequestListenerBuilder
     {
         /// <summary>
         /// Gets the services
@@ -10,10 +10,10 @@ namespace Microsoft.Extensions.DependencyInjection
         public IServiceCollection Services { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventListenerBuilder"/> class
+        /// Initializes a new instance of the <see cref="RequestListenerBuilder"/> class
         /// </summary>
         /// <param name="services"></param>
-        public EventListenerBuilder(IServiceCollection services)
+        public RequestListenerBuilder(IServiceCollection services)
             => Services = services;
     }
 }
